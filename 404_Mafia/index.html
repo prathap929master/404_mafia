@@ -3,145 +3,151 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 Mafiaah </title>
+  <title>404 Mafiaah</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <link rel="icon" type="image/jpg" href="logo.jpg">
 
-<link rel="icon" type="logo.jpg" href="logo.jpg">
-
-   <style>
+  <style>
+   
     :root {
       --bg-color: #f2f4f7;
       --text-color: #333;
-      --card-bg: #fff;
-      --note-bg: #e9f0fa;
+      --card-bg: rgba(255, 255, 255, 0.2);
+      --note-bg: rgba(255, 255, 255, 0.15);
+      --highlight: #007bff;
     }
-
     body.dark {
-      --bg-color: #121212;
+      --bg-color: #0d0d0d;
       --text-color: #e0e0e0;
-      --card-bg: #1e1e1e;
-      --note-bg: #2a2a2a;
+      --card-bg: rgba(30, 30, 30, 0.4);
+      --note-bg: rgba(42, 42, 42, 0.3);
+      --highlight: #1e90ff;
     }
 
+   
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: var(--bg-color);
-      padding: 20px;
-      color: var(--text-color);
-      transition: background 0.3s, color 0.3s;
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: var(--bg-color) url('your-background.jpg') no-repeat center center / cover;
+  color: var(--text-color);
+  transition: background 0.4s ease, color 0.4s ease;
+  background-image: radial-gradient(circle at top, rgba(0,0,0,0.05), transparent 50%),
+                    url('vijay.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+    
+    h1 {
+      text-align: center;
+      font-size: 60px;
+      font-family: 'Georgia', serif;
+      position: relative;
+      animation: glitchColor 3s infinite;
+      margin-top: 60px;
+    }
+    @keyframes glitchColor {
+      0% { color: var(--highlight); text-shadow: 2px 2px #ff005d; }
+      25% { color: #ff005d; text-shadow: -2px -2px var(--highlight); }
+      50% { color: var(--highlight); text-shadow: 2px -2px #ff005d; }
+      75% { color: #ff005d; text-shadow: -2px 2px var(--highlight); }
+      100% { color: var(--highlight); text-shadow: none; }
     }
 
-   h1 {
-    text-align: center;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    font-size: 60px;
-    animation: glitch 4s infinite;
-  }
-
-  @keyframes glitch {
-    0% { color: red; text-shadow: 2px 2px blue; }
-    5% { color: blue; text-shadow: -2px -2px red; }
-    10% { color: black; text-shadow: 2px -2px red; }
-    15% { color: red; text-shadow: -2px 2px blue; }
-    20% { color: blue; text-shadow: 2px 2px red; }
-    25% { color: white; text-shadow: none; }
-    100% { color: white; text-shadow: none; }
-  }
-
+   
     .toggle-btn {
       position: fixed;
       top: 20px;
       right: 20px;
       padding: 8px 14px;
-      background: var(--note-bg);
       border: none;
-      border-radius: 6px;
+      border-radius: 8px;
       cursor: pointer;
       font-weight: bold;
-      transition: background 0.3s;
+      background: var(--note-bg);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      color: var(--text-color);
+      transition: all 0.3s ease;
+    }
+    .toggle-btn:hover {
+      transform: scale(1.05);
     }
 
+   
     .subject {
       background: var(--card-bg);
-      border-radius: 10px;
+      backdrop-filter: blur(12px);
+      border-radius: 16px;
       padding: 20px;
-      margin-bottom: 30px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-      transition: background 0.3s;
+      margin: 25px auto;
+      max-width: 900px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
     }
-
+    .subject:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    }
     .subject h2 {
+      text-align: center;
+      color: var(--highlight);
       margin-bottom: 15px;
-      color: #007bff;
+      font-size: 28px;
+      position: relative;
+    }
+    .subject h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--highlight);
+      margin: 8px auto 0;
+      border-radius: 3px;
     }
 
+    
     .notes-list {
       display: flex;
       flex-wrap: wrap;
       gap: 15px;
+      justify-content: center;
     }
-
-    .note {
-      background: var(--note-bg);
-      padding: 15px;
-      border-radius: 8px;
-      flex: 1 1 200px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      transition: transform 0.3s, background 0.3s;
-    }
-
-    .note:hover {
-      transform: scale(1.03);
-    }
-
-    .note a {
+    .notes-list a {
       text-decoration: none;
       color: var(--text-color);
-      font-weight: bold;
-      margin-top: 10px;
+      font-size: 20px;
+      padding: 12px 18px;
+      background: var(--note-bg);
+      border-radius: 10px;
+      backdrop-filter: blur(10px);
+      transition: all 0.3s ease;
+    }
+    .notes-list a:hover {
+      color: white;
+      background: var(--highlight);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     }
 
-    .note img {
-      width: 50px;
-      height: 50px;
-    }
-
-    @media (max-width: 600px) {
-      .notes-list {
-        flex-direction: column;
-      }
-    }
-
+   
     footer {
-      padding: 20px 0;
       text-align: center;
-    }
-
- .social-icons {
-      text-align: center;
-      margin-top: 10px;
+      padding: 30px 0;
+      font-size: 17px;
+      background-color: #ffffff44;
+      color: rgb(0, 0, 0);
     }
     .social-icons a {
+      color: white;
       margin: 0 10px;
-      color: #666;
-      font-size: 28px;
+      color: var(--text-color);
+      font-size: 26px;
       transition: color 0.3s;
     }
     .social-icons a:hover {
-      color: #007bff;
+      color: var(--highlight);
     }
-
-    @media (max-width: 600px) {
-      .notes-list {
-        flex-direction: column;
-      }
-    }
-
-
   </style>
 </head>
 <body>
@@ -149,144 +155,38 @@
 
   <h1>404 Mafiaah</h1>
 
+  <!-- Syllabus -->
   <div class="subject">
     <h2>Syllabus</h2>
     <div class="notes-list">
-      <div class="note">
-        <a href="MSc syllabus.pdf" target="_blank">Syllabus</a>
-      </div>
-      
+      <a href="MSc syllabus.pdf" target="_blank">Syllabus</a>
     </div>
   </div>
 
-
+  <!-- Subjects -->
   <div class="subject">
-    <h2>Operating System</h2>
+    <h2>M1</h2>
     <div class="notes-list">
-      <div class="note">
-        <a href="notes/os/unit-1.pdf" target="_blank">Module 1 </a>
-        <a href="notes/os/unit-1.pdf" target="_blank">Computer system architecture</a>
-      </div>
-      <div class="note">
-        <a href="notes/os/Os -Memory mnagement.pdf" target="_blank">Memory Management </a>
-        <a href="notes/os/Os -Memory mnagement.pdf" target="_blank">Click</a>
-      </div>
-      <div class="note">
-        <a href="notes/os/ch3 (3).pptx" target="_blank">Module 3</a>
-        <a href="notes/os/ch3 (3).pptx" target="_blank">Process</a>
-      </div>
-       <div class="note">
-        <a href="notes/os/Operating System Concepts 9e.pdf" target="_blank">Concepts of OS</a>
-        <a href="notes/os/Operating System Concepts 9e.pdf" target="_blank">All in one </a>
-      </div>
+      <a href="subject/java.html">JAVA</a>
+      <a href="subject/os.html">Operating System</a>
+      <a href="subject/web.html">WEB</a>
+      <a href="subject/maths.html">Mathematics</a>
     </div>
   </div>
 
+  <!-- Other Links -->
   <div class="subject">
-    <h2>Web</h2>
+    <h2>Resources</h2>
     <div class="notes-list">
-<div class="note">
-        <a href="notes/web/internet.pdf" target="_blank">Internet</a>
-        <a href="notes/web/internet.pdf" target="_blank">Click</a>
-      </div>
-       <div class="note">
-        <a href="notes/web/Html.pdf" target="_blank">Html</a>
-        <a href="notes/web/Html.pdf" target="_blank">click</a>
-      </div>
-      <div class="note">
-        <a href="notes/web/css.pdf" target="_blank">CSS </a>
-        <a href="notes/web/css.pdf" target="_blank">Click</a>
-      </div>
-       <div class="note">
-        <a href="notes/web/PHP Basic.pdf" target="_blank">PHP</a>
-        <a href="notes/web/PHP Basic.pdf" target="_blank">click </a>
-      </div>
-      <div class="note">
-       <a href="notes/web/internet_merged.pdf" target="_blank">Internet / HTML / CSS / PHP</a>
-        <a href="notes/web/internet_merged.pdf" target="_blank">Merged</a>
-      </div>
+      <a href="lab.html">Lab</a>
+      <a href="404.html">Assignment</a>
+      <a href="Question.html">Question Paper</a>
     </div>
   </div>
 
-
-<div class="subject">
-    <h2>Mathematis</h2>
-    <div class="notes-list">
-      <div class="note">
-        <a href="notes/Maths/MSc CS MC Module I.pdf" target="_blank">Module 1 </a>
-        <a href="notes/Maths/MSc CS MC Module I.pdf" target="_blank">PROPOSITIONAL CALCULUS</a>
-      </div>
-      <div class="note">
-        <a href="notes/Maths/MSc CS Module 2.pdf" target="_blank">Module 2</a>
-        <a href="notes/Maths/MSc CS Module 2.pdf" target="_blank">BASIC STATISTICS</a>
-      </div>
-       <div class="note">
-        <a href="notes/Maths/MSc CS Module 3.pdf" target="_blank">Module 3</a>
-        <a href="notes/Maths/MSc CS Module 3.pdf" target="_blank">CORRELATION</a>
-      </div>
-    </div>
-  </div>
-
-
-<div class="subject">
-    <h2>JAVA</h2>
-    <div class="notes-list">
-      <div class="note">
-        <a href="notes/Java/Arrays.pdf" target="_blank">Arrays</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/break.pdf" target="_blank">Break</a>
-      </div>
-       <div class="note">
-        <a href="notes/Java/Class and Objects.pdf" target="_blank">Class And Object</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Dynamic Method Dispatch .pdf" target="_blank">Dynamic Method dispatch</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Inheritance.pdf" target="_blank">Inheritance</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Introduction to javauptoselection.pdf" target="_blank">Introduction to JAVA</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Java Basics.pdf" target="_blank">Java Basics</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Loopsand Jumps.pdf" target="_blank">Loops and Jumps</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Method Overloading in Java.pdf" target="_blank">Method Overloading</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/Method Overriding.pdf" target="_blank">Method Overriding</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/OOPs.pdf" target="_blank">OOP's</a>
-      </div>
-      <div class="note">
-        <a href="notes/Java/operatorsExamples.pdf" target="_blank">Operators Example</a>
-      </div>
-
-    </div>
-  </div>
-
-
-  <hr>
-<div class="note">
-        <a href="lab.html" target="_blank">Lab</a>
-        </div>
-        <hr>
-          <div class="note">
-        <a href="#" target="_blank">Assignment</a>
-        </div><hr>
-        <hr>
-          <div class="note">
-        <a href="Question.html" target="_blank">Question Paper</a>
-        </div><hr>
-
-<footer>
-    <p style="text-align: center; color: #666;">&copy; 404 Mafiaah || Prathap B</p>
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 404 Mafiaah || Prathap B</p>
     <div class="social-icons">
       <a href="https://wa.me/9745457037" target="_blank"><i class="fab fa-whatsapp"></i></a>
       <a href="https://instagram.com/prathap_b_369" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -294,17 +194,12 @@
     </div>
   </footer>
 
-<script>
+  <script>
     function toggleDarkMode() {
       document.body.classList.toggle('dark');
       const btn = document.querySelector('.toggle-btn');
-      if (document.body.classList.contains('dark')) {
-        btn.textContent = '☀ Light Mode';
-      } else {
-        btn.textContent = '🌙 Dark Mode';
-      }
+      btn.textContent = document.body.classList.contains('dark') ? '☀ Light Mode' : '🌙 Dark Mode';
     }
   </script>
-
 </body>
 </html>
